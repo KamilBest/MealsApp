@@ -9,18 +9,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitApiClient {
 
     fun getInstance(): Retrofit {
-        val httpLoggingInterceptor = HttpLoggingInterceptor()
-            .setLevel(HttpLoggingInterceptor.Level.BODY)
-
-        val okHttpClient = OkHttpClient
-            .Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .build()
+//        val httpLoggingInterceptor = HttpLoggingInterceptor()
+//            .setLevel(HttpLoggingInterceptor.Level.BODY)
+//
+//        val okHttpClient = OkHttpClient
+//            .Builder()
+//            .addInterceptor(httpLoggingInterceptor)
+//            .build()
 
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient)
+            //.client(okHttpClient)
             .build()
     }
 
