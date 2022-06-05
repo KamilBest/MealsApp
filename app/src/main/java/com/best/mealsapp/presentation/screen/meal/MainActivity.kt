@@ -28,19 +28,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MealCategoriesScreen() {
     val viewModel: MealsCategoriesViewModel = viewModel()
-    val rememberedMealsCategories: MutableState<List<MealCategory>> =
-        remember { mutableStateOf(emptyList()) }
-    val coroutineScope = rememberCoroutineScope()
-    LaunchedEffect(key1 = "GET_MEALS") {
-        coroutineScope.launch(Dispatchers.IO) {
-            val mealCategories = viewModel.getMealsCategories()
-            rememberedMealsCategories.value = mealCategories
-        }
-    }
+    val mealsCategories = viewModel.mealsCategoriesState.value
     // Text(text = "Meal categories: ${rememberedMealsCategories.value.joinToString()}")
     LazyColumn {
-        items(rememberedMealsCategories.value) { mealCategory ->
-            Text(text = mealCategory.toString())
+        items(mealsCategories) { mealCategory ->
+            Text(text = mealCategory.name)
         }
     }
 }
