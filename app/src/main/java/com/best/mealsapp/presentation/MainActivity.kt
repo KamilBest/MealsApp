@@ -3,7 +3,7 @@ package com.best.mealsapp.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.best.mealsapp.presentation.screen.meal.category.MealCategoriesScreen
+import com.best.mealsapp.presentation.screen.mealcategorieslist.MealCategoriesScreen
 import com.best.mealsapp.presentation.theme.MealsAppTheme
 
 class MainActivity : ComponentActivity() {

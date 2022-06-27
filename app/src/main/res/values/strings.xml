@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Meals App</string>
+    <string name="expand_icon_content_descr">Expand row icon</string>
 </resources>
