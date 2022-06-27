@@ -1,4 +1,4 @@
-package com.best.mealsapp.presentation.screen.meal.category
+package com.best.mealsapp.presentation.screen.mealcategorieslist
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,13 +15,15 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.best.mealsapp.domain.model.category.MealCategory
+import com.best.mealsapp.presentation.screen.mealcategorieslist.viewmodel.MealsCategoriesViewModel
+import com.best.mealsapp.presentation.theme.LocalSpacing
 import com.best.mealsapp.presentation.theme.MealsAppTheme
 
 @Composable
 fun MealCategoriesScreen() {
     val viewModel: MealsCategoriesViewModel = viewModel()
     val mealsCategories = viewModel.mealsCategoriesState.value
-    LazyColumn(contentPadding = PaddingValues(16.dp)) {
+    LazyColumn(contentPadding = PaddingValues(LocalSpacing.current.gridNormal100)) {
         items(mealsCategories) { mealCategory ->
             MealCategory(mealCategory)
         }
@@ -35,7 +37,7 @@ fun MealCategory(mealCategory: MealCategory) {
         elevation = 2.dp,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 16.dp)
+            .padding(top = LocalSpacing.current.gridNormal100)
     ) {
         Row {
             AsyncImage(
@@ -43,12 +45,12 @@ fun MealCategory(mealCategory: MealCategory) {
                 contentDescription = mealCategory.name,
                 modifier = Modifier
                     .size(88.dp)
-                    .padding(4.dp)
+                    .padding(LocalSpacing.current.gridSmall100)
             )
             Column(modifier = Modifier
                 .fillMaxSize()
                 .align(Alignment.CenterVertically)
-                .padding(16.dp)) {
+                .padding(LocalSpacing.current.gridNormal100)) {
                 Text(text = mealCategory.name, style = MaterialTheme.typography.h6)
             }
         }

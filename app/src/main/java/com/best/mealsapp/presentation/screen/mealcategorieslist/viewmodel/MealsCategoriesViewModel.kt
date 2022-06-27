@@ -1,4 +1,4 @@
-package com.best.mealsapp.presentation.screen.meal.category
+package com.best.mealsapp.presentation.screen.mealcategorieslist.viewmodel
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
